@@ -65,33 +65,7 @@ const userSchema = new mongoose.Schema({
 })*/
 
 // to call the method to generate the encrypted password
-/*userSchema.methods={
 
-    authenticate:function(plainpassword){
-        return this.securePassword(plainpassword)===this.enc_password;// if generate hasing value equals
-        // to store hashing value then it will match.
-    },
-    securePassword:function (plainpassword){
-        if(!plainpassword){
-            return "";
-        }
-        else{
-            try{
-                return crypto.createHmac('sha256', this.salt)
-                .update(plainpassword)// plain text
-                .digest('hex');
-            }
-            catch(err){
-
-                return "";
-
-            }
-        }
-
-
-    }
-}
-*/
 userSchema
   .virtual("password")
   .set(function(password) {
